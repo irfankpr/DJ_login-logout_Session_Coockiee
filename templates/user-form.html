@@ -1,0 +1,70 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>log IN</title>
+    <link rel="stylesheet" href="{% static 'form.css' %}">
+</head>
+
+<body>
+    <div class="main">
+        <div class="formbox">
+            <div class="buttonbox">
+                <div id="btn"></div>
+                <button type="button " class="toggle" onclick="java1()">Log In</button>
+                <button type="button " class="toggle" onclick="java2()">SIGN UP</button>
+            </div>
+             <h3 style="color : red" class="text-danger">{{err}}</h3>
+            <form class="input-group" id="form1" action="login" method="POST">
+             {% csrf_token %}
+                <input class="input" placeholder="User Name" type="text" name="Username" required>
+                <input class="input" type="password" placeholder="Password" name="password" required>
+
+                <button type="submit" class="sub">LOg In</button>
+            </form>
+
+            <form class="input-group" id="form2" action="signup" method="post">
+             {% csrf_token %}
+                <input class="input" placeholder="User Name" type="text" required>
+                <input class="input" placeholder="Phone number" type="number" required>
+                <input class="input" placeholder="E mail" type="text" required>
+                <input class="input" type="text" list="dist" placeholder="Place" required>
+                <input class="input" type="text" placeholder="Set Password" required>
+                <input class="check" type="checkbox" required> <a href="#">I accept terms and conditions</a>
+                <button type="submit" class="sub">Register</button>
+            </form>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+    <datalist id="dist">
+        <option>Alappuzha</option>
+        <option>Ernakulam</option>
+        <option>Idukki</option>
+        <option>Kannur</option>
+        <option>Kasaragod</option>
+        <option>Kollam</option>
+        <option>Kottayam</option>
+        <option>Kozhikode</option>
+        <option>Malappuram</option>
+        <option>Palakkad</option>
+        <option>Pathanamthitta</option>
+        <option>Thiruvananthapuram</option>
+        <option>Thrissur</option>
+        <option>Wayanad</option>
+    </datalist>
+
+  <script src="{% static 'form.js' %}"></script>
+
+</body>
+</html>

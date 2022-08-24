@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block cont %}
+<body class=" container-fluid">
+
+        <div class="col-12 row container justify-content-between">
+        <h1 class="text-info col-6 float-left">Hi.. {{name}}</h1>
+            <a href="signout" class="text-white bg-danger">SIGN OUT</a>
+            </div>
+
+        <h3 class="col-12 text-danger">WELCOME TO HOME PAGE</h3>
+        <img class="col-6" src="{% static 'hifi.gif' %} " alt="cannot load image" >
+
+
+
+{% endblock %}
