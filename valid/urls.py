@@ -5,9 +5,8 @@ from valid import views
 # valid . urls
 
 urlpatterns = [
-    path('', views.userform),
+    path('', views.index),
     path('login', views.login),
     path('home', views.home),
-    path('signout', views.signout),
-    path('sout', views.sout)
+    path('signout', views.signout)
 ]

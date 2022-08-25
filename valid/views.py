@@ -9,7 +9,7 @@ passw = 'abin123'
 
 
 @never_cache
-def userform(request):
+def index(request):
     if request.COOKIES.get("username") and request.COOKIES.get("password"):
         Cname = request.COOKIES.get('username')
         Cpassw = request.COOKIES.get('password')
@@ -27,7 +27,7 @@ def login(request):
         username = request.POST.get('Username')
         password = request.POST.get('password')
         if username == name and password == passw:
-            res = redirect('/home')
+            res = redirect('/')
             res.set_cookie('username', username)
             res.set_cookie('password', password)
             request.session['Username'] = username
@@ -40,7 +40,7 @@ def login(request):
 @never_cache
 def signout(request):
     del request.session
-    res = redirect('/sout')
+    res = redirect('/')
     res.delete_cookie("username")
     res.delete_cookie('password')
     return res
@@ -55,8 +55,6 @@ def home(request):
         if Cname == Sname and Cpassw == Spassw:
             return render(request, 'home.html', {'name': Cname})
         else:
-            return redirect('/sout')
+            return redirect('/')
 
 
-def sout(request):
-    return render(request, 'user-form.html')
