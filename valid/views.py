@@ -8,7 +8,7 @@ name = "abin"
 passw = 'abin123'
 
 
-@never_cache
+
 def index(request):
     if request.COOKIES.get("username") and request.COOKIES.get("password"):
         Cname = request.COOKIES.get('username')
@@ -21,7 +21,6 @@ def index(request):
         return render(request, 'user-form.html')
 
 
-@never_cache
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('Username')
@@ -37,7 +36,6 @@ def login(request):
             return render(request, 'user-form.html', {'err': "invalid credentials"})
 
 
-@never_cache
 def signout(request):
     del request.session
     res = redirect('/')
